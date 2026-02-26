@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import { CircleMarker, MapContainer, TileLayer, useMapEvents } from "react-leaflet";
+const API_BASE = "https://climate-risk-based-lending-system.onrender.com";
 
 const RISK_COLORS = {
   Cyclone: "#0e7490",
@@ -310,7 +311,7 @@ export default function App() {
       const formData = new FormData();
       formData.append("file", portfolioFile);
       formData.append("projection_start_year", String(projectionStartYear));
-      const res = await fetch("/api/portfolio/analyze/", {
+      const res = await fetch("https://climate-risk-based-lending-system.onrender.com/api/portfolio/analyze/", {
         method: "POST",
         body: formData
       });
